@@ -39,8 +39,11 @@
     <a href="shortcuts://run-shortcut?name=LogMindState" class="btn" id="fallback-btn">手動開啟捷徑</a>
 
     <script>
-        // 設定你要喚醒的捷徑 URL
-        const shortcutUrl = "shortcuts://run-shortcut?name=LogMindState";
+        // 抓取原本網址後面的參數 (包含 ?input=...)
+        const queryString = window.location.search; 
+
+        // 把參數接在捷徑連結後面
+        const shortcutUrl = "shortcuts://run-shortcut?name=LogMindState" + queryString;
 
         // 網頁載入完成後立刻嘗試自動跳轉
         window.onload = function() {
